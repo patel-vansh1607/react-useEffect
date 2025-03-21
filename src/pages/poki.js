@@ -2,9 +2,10 @@ import { useEffect , useState} from "react"
 
 const Poki = () => {
     const [data, setData] = useState([])
+    const[url, setUrl] = useState("https://pokeapi.co/api/v2/pokemon/")
 
     const fetchPokemon = () => {
-        fetch("https://pokeapi.co/api/v2/pokemon?limit=20")
+        fetch(url)
         .then(res => res.json())
         .then(data => setData(data.results))
         .catch(error => console.log("error fetching", error))
