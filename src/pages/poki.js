@@ -3,8 +3,8 @@ import { useEffect , useState} from "react"
 const Poki = () => {
     const[offset, setOffset] = useState(0)
     const [data, setData] = useState([0])
-    const [prevBtnActive, setPrevBtnActive] = useState(null)
-
+/*     const [prevBtnActive, setPrevBtnActive] = useState(null)
+ */
     const fetchPokemon = (os) => {
         let url = `https://pokeapi.co/api/v2/pokemon?limit=20&offset=${os}`
         fetch(url)
