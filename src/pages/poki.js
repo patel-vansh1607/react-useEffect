@@ -15,10 +15,14 @@ const Poki = () => {
     }, [] )
     return(
         <div>
-             <h2>Pokémon Characters</h2>
+             <h2>Pokemon Characters</h2>
             <ul>
                 {data.map((pokemon, index) => (
-                    <li key={index}>{pokemon.name}</li>
+                    <li 
+                        key={index}>{pokemon.name} {/* this will display the names */}
+                        key={index} {pokemon.url} {/*  i added the url here */}
+
+                    </li>
                 ))}
             </ul>
         </div>
