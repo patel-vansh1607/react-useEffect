@@ -4,9 +4,9 @@ const Poki = () => {
     const [data, setData] = useState([])
 
     const fetchPokemon = () => {
-        fetch("https://pokeapi.co/api/v2/pokemon/")
+        fetch("https://pokeapi.co/api/v2/pokemon?limit=20")
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => setData(data.results))
         .catch(error => console.log("error fetching", error))
     }
 
@@ -15,7 +15,12 @@ const Poki = () => {
     }, [] )
     return(
         <div>
-
+             <h2>Pokémon Characters</h2>
+            <ul>
+                {data.map((pokemon, index) => (
+                    <li key={index}>{pokemon.name}</li>
+                ))}
+            </ul>
         </div>
     );
         
