@@ -10,6 +10,12 @@ const Poki = () => {
         .then(data => setData(data.results))
         .catch(error => console.log("error fetching", error))
     }
+    const handleNext = () =>{}
+    const handlePrevious = () =>{}
+
+
+
+
 
     useEffect (() => {
         fetchPokemon()
@@ -25,9 +31,8 @@ const Poki = () => {
                 </li>
                 ))}
             </ol>
-            <button>Previous</button>
-            <button>Next</button>
-
+            <button onClick={handlePrevious}>Previous</button>
+            <button onClick={handleNext}>Next</button>
         </div>
     );
 }
