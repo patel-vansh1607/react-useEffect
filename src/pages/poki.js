@@ -16,18 +16,19 @@ const Poki = () => {
     return(
         <div>
              <h2>Pokemon Characters</h2>
-            <ul>
+            <ol>
                 {data.map((pokemon, index) => (
-                    <li 
-                        key={index}>{pokemon.name}  {/* this will display the names */} 
-                        URL = {pokemon.url} {/* this will display the URL */}
- 
-                    </li>
+                    <li
+                        key={index}>{pokemon.name}  {/* this will display the names */}
+                        {/*URL = {pokemon.url} {/* this will display the URL */}                 
+                </li>
                 ))}
-            </ul>
+            </ol>
+            <button>Previous</button>
+            <button>Next</button>
+
         </div>
     );
-        
 }
 
 export default Poki;
