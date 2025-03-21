@@ -10,8 +10,12 @@ const Poki = () => {
         .then(data => setData(data.results))
         .catch(error => console.log("error fetching", error))
     }
-    const handleNext = () =>{}
-    const handlePrevious = () =>{}
+    const handleNext = () =>{
+        setOffset(prev => prev += 20)
+    }
+    const handlePrevious = () =>{
+        setOffset(prev => prev += 20)
+    }
 
 
 
