@@ -18,6 +18,7 @@ const Poki = () => {
     const handlePrevious = () =>{
         setOffset(prev => prev -= 20)
     }
+    
 
     useEffect (() => {
         fetchPokemon(offset)
