@@ -1,10 +1,12 @@
 import { useEffect , useState} from "react"
 
 const Poki = () => {
-    const [data, setData] = useState([])
-    const[url, setUrl] = useState`https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=20`
+    const[offset, setOffset] = useState(0)
+    const [data, setData] = useState([0])
+    const[url, setUrl] = useState([])
 
-    const fetchPokemon = (offset) => {
+    const fetchPokemon = (os) => {
+        let url = `https://pokeapi.co/api/v2/pokemon?limit=20&offset=${os}`
         fetch(url)
         .then(res => res.json())
         .then(data => setData(data.results))
@@ -22,19 +24,19 @@ const Poki = () => {
 
 
     useEffect (() => {
-        fetchPokemon()
-    }, [] )
+        fetchPokemon(offset)
+    }, [offset] )
     return(
         <div>
              <h2>Pokemon Characters</h2>
-            <ol>
+            <ul>
                 {data.map((pokemon, index) => (
-                    <li
+                <li
                         key={index}>{pokemon.name}  {/* this will display the names */}
                         {/*URL = {pokemon.url} {/* this will display the URL */}                 
                 </li>
                 ))}
-            </ol>
+            </ul>
             <button onClick={handlePrevious}>Previous</button>
             <button onClick={handleNext}>Next</button>
         </div>
