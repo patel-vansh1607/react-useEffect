@@ -19,9 +19,9 @@ const Poki = () => {
             <ul>
                 {data.map((pokemon, index) => (
                     <li 
-                        key={index}>{pokemon.name} {/* this will display the names */}
-                        key={index} {pokemon.url} {/*  i added the url here */}
-
+                        key={index}>{pokemon.name}  {/* this will display the names */} 
+                        URL = {pokemon.url} {/* this will display the URL */}
+ 
                     </li>
                 ))}
             </ul>
