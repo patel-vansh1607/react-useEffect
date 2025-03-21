@@ -16,7 +16,7 @@ const Poki = () => {
         setOffset(prev => prev += 20)
     }
     const handlePrevious = () =>{
-        setOffset(prev => prev += 20)
+        setOffset(prev => prev -= 20)
     }
 
     useEffect (() => {
