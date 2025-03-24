@@ -5,12 +5,21 @@ const Poki = () => {
     const [data, setData] = useState([0])
 /*     const [prevBtnActive, setPrevBtnActive] = useState(null)
  */
-    const fetchPokemon = (os) => {
+    const fetchPokemon = async  (os) => {
         let url = `https://pokeapi.co/api/v2/pokemon?limit=20&offset=${os}`
-        fetch(url)
+/*         fetch(url)
         .then(res => res.json())
         .then(data => setData(data.results))
-        .catch(error => console.log("error fetching", error))
+        .catch(error => console.log("error fetching", error)) */
+        try{
+            const pokeApiResponse = await fetch(url)
+            const data = await pokeApiResponse.json()
+
+            setData(data.results)
+        } catch(error){
+            console.log("error fetching", error)
+        }
+
     }
     const handleNext = () =>{
         setOffset(prev => prev += 20)
