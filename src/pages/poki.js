@@ -45,8 +45,18 @@ const Poki = () => {
             </ul>
             <button onClick={handlePrevious}>Previous</button>
             <button onClick={handleNext}>Next</button>
+            <div>
+                <PokemonCharacterProfile />
+            </div>
         </div>
     );
+}
+const PokemonCharacterProfile = () => {
+    return(
+        <div>
+            <h1>Pokemon Profile</h1>
+        </div>
+    )
 }
 
 
