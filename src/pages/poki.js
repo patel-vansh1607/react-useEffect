@@ -3,14 +3,12 @@ import { useEffect , useState} from "react"
 const Poki = () => {
     const[offset, setOffset] = useState(0)
     const [data, setData] = useState([0])
-/*     const [prevBtnActive, setPrevBtnActive] = useState(null)
- */
+    const [profileUrl, setProfileUrl] = useState ("")
+
+
     const fetchPokemon = async  (os) => {
         let url = `https://pokeapi.co/api/v2/pokemon?limit=20&offset=${os}`
-/*         fetch(url)
-        .then(res => res.json())
-        .then(data => setData(data.results))
-        .catch(error => console.log("error fetching", error)) */
+
         try{
             const pokeApiResponse = await fetch(url)
             const data = await pokeApiResponse.json()
@@ -27,31 +25,45 @@ const Poki = () => {
     const handlePrevious = () =>{
         setOffset(prev => prev -= 20)
     }
-    
+    const handleProfileUrl = (url) => {
+        setProfileUrl(url)
+    }
 
     useEffect (() => {
         fetchPokemon(offset)
     }, [offset] )
     return(
         <div>
-             <h2>Pokemon Characters</h2>
-            <ul>
-                {data.map((pokemon, index) => (
-                <li
-                        key={index}>{pokemon.name}  {/* this will display the names */}
-                        {/*URL = {pokemon.url} {/* this will display the URL */}                 
-                </li>
-                ))}
+            <div>
+                <ul>
+                {data.map((val, key) => {
+                    const {name, url} = val
+                    return(
+                        <button onClick={() => handleProfileUrl(url)} key={key}> 
+                            {name} 
+                        </button>
+                    )
+                })}
             </ul>
             <button onClick={handlePrevious}>Previous</button>
             <button onClick={handleNext}>Next</button>
-            <div>
-                <PokemonCharacterProfile />
-            </div>
         </div>
+        <div>
+            <PokemonCharacterProfile
+             profileUrl={profileUrl}
+            />
+        </div>
+    </div>
     );
 }
-const PokemonCharacterProfile = () => {
+const PokemonCharacterProfile = ({ profileUrl }) => {
+    const fetchPokemonProfile = async () => {
+        const response = await fetch(profileUrl)
+        const data = await response.json()
+        console.log(data)
+    }
+    useEffect(() => {
+   }, [profileUrl])
     return(
         <div>
             <h1>Pokemon Profile</h1>
