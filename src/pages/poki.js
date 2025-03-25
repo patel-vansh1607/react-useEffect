@@ -78,7 +78,14 @@ const PokemonCharacterProfile = ({ profileUrl }) => {
                     <li key={index}>{moveObj.move.name}</li>
                 ))}
             </ol>
+            <img src={data.sprites?.back_default}/>
+            <img src={data.sprites?.back_female}/>
+            <img src={data.sprites?.back_shiny}/>
+            <img src={data.sprites?.back_shiny_female}/>
             <img src={data.sprites?.front_default}/>
+            <img src={data.sprites?.front_female}/>
+            <img src={data.sprites?.front_shiny}/>
+            <img src={data.sprites?.front_shiny_female}/>
         </div>
     )
 }
