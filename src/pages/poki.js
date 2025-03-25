@@ -74,7 +74,7 @@ const PokemonCharacterProfile = ({ profileUrl }) => {
             <h4>Name: {data.name}</h4>
             {console.log(data)}
             <ol>
-                {data.moves.map((moveObj, index) => (
+                {data.moves?.map((moveObj, index) => (
                     <li key={index}>{moveObj.move.name}</li>
                 ))}
             </ol>
