@@ -57,16 +57,28 @@ const Poki = () => {
     );
 }
 const PokemonCharacterProfile = ({ profileUrl }) => {
+    const [data, setData] = useState({})
+
+
     const fetchPokemonProfile = async () => {
         const response = await fetch(profileUrl)
         const data = await response.json()
-        console.log(data)
+        setData(data)
     }
     useEffect(() => {
+        fetchPokemonProfile()
    }, [profileUrl])
     return(
         <div>
             <h1>Pokemon Profile</h1>
+            <h4>Name: {data.name}</h4>
+            {console.log(data)}
+            <ol>
+                {data.moves.map((moveObj, index) => (
+                    <li key={index}>{moveObj.move.name}</li>
+                ))}
+            </ol>
+            <img src={data.sprites?.front_default}/>
         </div>
     )
 }
